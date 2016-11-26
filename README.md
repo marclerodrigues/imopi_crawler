@@ -1,6 +1,6 @@
 # ImopiCrawler
 
-**TODO: Add description**
+This is a simple crawler to fetch all the real estate properties at Imóvies no Piauí Web Site
 
 ## Installation
 
@@ -21,4 +21,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [applications: [:imopi_crawler]]
     end
     ```
-
