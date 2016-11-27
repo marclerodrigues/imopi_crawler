@@ -7,7 +7,9 @@ defmodule ImopiCrawler.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     test_coverage: [tool: Coverex.Task]
+    ]
   end
 
   # Configuration for the OTP application
@@ -29,7 +31,8 @@ defmodule ImopiCrawler.Mixfile do
   defp deps do
     [
       {:httpotion, "~> 3.0.2"},
-      {:floki, "~> 0.11.0"}
+      {:floki, "~> 0.11.0"},
+      {:coverex, "~> 1.4.10", only: :test}
     ]
   end
 end
