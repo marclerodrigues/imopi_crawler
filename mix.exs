@@ -32,7 +32,8 @@ defmodule ImopiCrawler.Mixfile do
     [
       {:httpotion, "~> 3.0.2"},
       {:floki, "~> 0.11.0"},
-      {:coverex, "~> 1.4.10", only: :test}
+      {:coverex, "~> 1.4.10", only: :test},
+      {:exvcr, "~> 0.7", only: :test}
     ]
   end
 end
