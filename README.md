@@ -31,7 +31,7 @@ You can fetch all the properties by just running:
   ImopiCrawler.properties
   ```
 
-This command with fetch all the properties listed at the site and return at a List of Structs.
+This command will fetch all the properties listed at the site and return as a List of Structs.
 
 You can also customize the base path and the page number to start fetching the properties.
 
@@ -45,7 +45,7 @@ Let's suppose you already have a list of properties and would like to take that 
   ImopiCrawler.properties(base_url, page, [YourListHere])
   ```
 
-By default this package if configure to retry 10 times the same url if an HTTP Exception is raised you can change that by running:
+By default this package if configure to retry 10 times the same url if an HTTP Exception is raised, you can change that by running:
 
   ```elixir
   ImopiCrawler.properties(base_url, page, [], number_of_retries)
@@ -66,4 +66,5 @@ You have any suggestions make a pull request, they're welcome!
 ## Next steps
 
 Fetch the pages concurrently.
+
 Make this crawler reusable for other websites.
