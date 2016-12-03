@@ -16,7 +16,7 @@ defmodule ImopiCrawler.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpotion]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -30,10 +30,10 @@ defmodule ImopiCrawler.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpotion, "~> 3.0.2"},
       {:floki, "~> 0.11.0"},
       {:coverex, "~> 1.4.10", only: :test},
-      {:exvcr, "~> 0.7", only: :test}
+      {:exvcr, "~> 0.7", only: :test},
+      {:httpoison, "~> 0.10.0"}
     ]
   end
 end
