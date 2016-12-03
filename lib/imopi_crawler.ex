@@ -12,7 +12,7 @@ defmodule ImopiCrawler do
 
   defp fetch_data(url, page, properties, retries \\ @max_retries)
 
-  defp fetch_data(url, page, properties, 0) do
+  defp fetch_data(url, page, _properties, 0) do
     raise "Failed to fetch from #{url}?#{page} after #{@max_retries} retries."
   end
 
