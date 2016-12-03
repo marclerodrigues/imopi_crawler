@@ -20,17 +20,17 @@ defmodule ImopiCrawler do
     try do
       response = get_response(url, page)
       case response do
-        %HTTPotion.Response{body: _, headers: _, status_code: status} when status == 200 ->
+        %HTTPoison.Response{body: _, headers: _, status_code: status} when status == 200 ->
           fetch_data(url, page + 1, properties ++ parse_response(response))
-        %HTTPotion.Response{ body: _, headers: _, status_code: status } when status > 408 ->
-          raise %HTTPotion.HTTPError{message: "req_timedout"}
+        %HTTPoison.Response{ body: _, headers: _, status_code: status } when status > 408 ->
+          raise %HTTPoison.Error{reason: "req_timedout"}
         _ ->
           properties
       end
     rescue
       error ->
         case error do
-          %HTTPotion.HTTPError{message: "req_timedout"} ->
+          %HTTPoison.Error{reason: "req_timedout"} ->
             :timer.sleep(@wait_to_fetch_again)
             fetch_data(url, page, properties, retries - 1)
           %RuntimeError{} ->
@@ -40,7 +40,7 @@ defmodule ImopiCrawler do
   end
 
   defp get_response(url, page) do
-    "#{url}?page=#{page}" |> URI.encode |> HTTPotion.get
+    "#{url}?page=#{page}" |> URI.encode |> HTTPoison.get!
   end
 
   defp parse_response(response) do
